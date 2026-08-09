@@ -159,9 +159,3 @@ Visit [http://localhost:3000](http://localhost:3000).
 - AI image generation for visual scenes
 - Spaced-repetition scheduling for flashcards
 - Shareable/public decks
-
----
-
-## 📄 License
-
-Internal project — add your preferred license here.
