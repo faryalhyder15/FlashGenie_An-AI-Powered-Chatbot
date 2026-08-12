@@ -26,14 +26,19 @@ export async function signup(formData: FormData): Promise<ActionResult> {
   }
 
   const supabase = await createClient();
-  const { data, error } = await supabase.auth.signUp({
-    email: parsed.data.email,
-    password: parsed.data.password,
-    options: {
-      data: { full_name: parsed.data.fullName },
-    },
-  });
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
+const { data, error } = await supabase.auth.signUp({
+  email: parsed.data.email,
+  password: parsed.data.password,
+  options: {
+    emailRedirectTo: `${siteUrl}/auth/confirm`,
+    data: {
+      full_name: parsed.data.fullName,
+    },
+  },
+});
   if (error) {
     if (error.message.toLowerCase().includes("already registered")) {
       return { success: false, message: "An account with this email already exists." };

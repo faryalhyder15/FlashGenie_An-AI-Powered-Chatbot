@@ -38,7 +38,7 @@ export function WorkspaceSidebar({
   );
 
   return (
-    <aside className="w-72 shrink-0 border-r border-border bg-secondary/40 flex flex-col h-full">
+    <aside className="w-72 shrink-0 border-r border-border bg-secondary/40 flex flex-col h-full min-h-0">
       <div className="p-4 border-b border-border space-y-3">
         <div className="flex items-center gap-2 text-primary-700 font-display text-xl font-semibold">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0">
@@ -63,7 +63,7 @@ export function WorkspaceSidebar({
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-2 space-y-1 scrollbar-thin">
+      <div className="min-h-0 flex-1 overflow-y-auto p-2 space-y-1 scrollbar-thin">
         {filtered.length === 0 && (
           <p className="px-3 py-6 text-center text-xs text-muted-foreground">
             {conversations.length === 0
@@ -110,9 +110,9 @@ export function WorkspaceSidebar({
         ))}
       </div>
 
-      <div className="p-3 border-t border-border">
-        <LogoutButton className="w-full justify-start" />
-      </div>
+     <div className="shrink-0 border-t border-border p-3">
+       <LogoutButton className="w-full justify-start" />
+     </div>
     </aside>
   );
 }
